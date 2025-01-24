@@ -1,6 +1,15 @@
 package main
 
-func quickSort(arr []int) []int {
+func quickSort(arr []int, left, right int) {
 
-	return arr
+	p := hoarePartition(arr)
+	quickSort()
+}
+
+func hoarePartition(arr []int) int {
+
+}
+
+func lomutoPartition(arr []int) int {
+
 }
