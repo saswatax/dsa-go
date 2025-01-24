@@ -5,8 +5,9 @@ import (
 )
 
 func main() {
-	result := findKthLargest([]int{3, 2, 1, 5, 6, 4}, 2)
-	fmt.Println("Result: ", result)
+	arr := []int{3, 2, 1, 5, 6, 4}
+	mergeSort(arr, 0, 5)
+	fmt.Println("Result: ", arr)
 }
 
 // func main() {
