@@ -6,7 +6,7 @@ import (
 
 func main() {
 	arr := []int{3, 2, 1, 5, 6, 4}
-	mergeSort(arr, 0, 5)
+	quickSort(arr, 0, 5)
 	fmt.Println("Result: ", arr)
 }
 
