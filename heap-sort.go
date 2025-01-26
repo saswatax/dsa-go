@@ -4,16 +4,16 @@ func heapSort(arr []int) {
 	n := len(arr)
 
 	for i := n/2 - 1; i >= 0; i-- {
-		heapify(arr, n, i)
+		maxHeapify(arr, n, i)
 	}
 
 	for i := n - 1; i > 0; i-- {
 		arr[i], arr[0] = arr[0], arr[i]
-		heapify(arr, i, 0)
+		maxHeapify(arr, i, 0)
 	}
 }
 
-func heapify(arr []int, n, i int) {
+func maxHeapify(arr []int, n, i int) {
 	max := i
 	left := i*2 + 1
 	right := i*2 + 2
@@ -28,6 +28,6 @@ func heapify(arr []int, n, i int) {
 
 	if max != i {
 		arr[max], arr[i] = arr[i], arr[max]
-		heapify(arr, n, max)
+		maxHeapify(arr, n, max)
 	}
 }
