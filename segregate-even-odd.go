@@ -9,19 +9,18 @@ func segreGateEvenOdd(head *Node) *Node {
 		last = last.Next
 	}
 
-	curLast := last
 	cur := &dummy
 	var fEven, fOdd *Node
 
 	for cur.Next != fOdd {
 		if cur.Next.Val%2 != 0 {
-			curLast.Next = cur.Next
-			curLast = cur.Next
+			last.Next = cur.Next
+			last = cur.Next
 
 			cur.Next.Next, cur.Next = nil, cur.Next.Next
 
 			if fOdd == nil {
-				fOdd = curLast
+				fOdd = last
 			}
 		} else {
 			cur = cur.Next
