@@ -1,11 +1,15 @@
 package main
 
-type Node struct {
-	value int
-	next  *Node
-}
-
 func reverseLinkedList(head *Node) *Node {
+	var pre *Node = nil
+	cur := head
 
-	return head
+	for cur != nil {
+		next := cur.Next
+		cur.Next = pre
+		pre = cur
+		cur = next
+	}
+
+	return pre
 }
