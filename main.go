@@ -9,13 +9,13 @@ func main() {
 	head := Node{-1, nil}
 	last := &head
 
-	for _, v := range []int{1, 2, 4, 3, 5, 6, 7} {
+	for _, v := range []int{1, 3} {
 		node := Node{v, nil}
 		last.Next = &node
 		last = &node
 	}
 
-	result := segreGateEvenOdd(head.Next)
+	result := segreGateEvenOddSingleTraverSal(head.Next)
 	printLinkList(result)
 }
 

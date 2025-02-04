@@ -41,25 +41,32 @@ func segreGateEvenOdd(head *Node) *Node {
 func segreGateEvenOddSingleTraverSal(head *Node) *Node {
 	dummy := Node{-1, head}
 
-	i := &dummy
-	j := &dummy
-	var firstOdd *Node
+	var firstEven, firstOdd *Node
+	lastEven, lastOdd := &dummy, &dummy
 
-	for j != nil && j.Next != nil {
-		if j.Next.Val%2 == 0 {
-			i.Next = j.Next
-			i = j.Next
-			j.Next = j.Next.Next
-			j = j.Next.Next
+	cur := &dummy
+
+	for cur.Next != nil {
+		if cur.Next.Val%2 == 0 {
+			lastEven.Next = cur.Next
+			lastEven = cur.Next
+
+			if firstEven == nil {
+				firstEven = cur.Next
+			}
 		} else {
-			j = j.Next
+			lastOdd.Next = cur.Next
+			lastOdd = cur.Next
+
 			if firstOdd == nil {
-				firstOdd = j
+				firstOdd = cur.Next
 			}
 		}
+
+		cur.Next, cur.Next.Next = cur.Next.Next, nil
 	}
 
-	i.Next = firstOdd
+	lastEven.Next = firstOdd
 
-	return dummy.Next
+	return firstEven
 }
