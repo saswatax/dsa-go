@@ -3,14 +3,10 @@ package main
 import (
 	"fmt"
 
-	"github.com/saswatax/dsa-go/linkedlist"
+	"github.com/saswatax/dsa-go/stack"
 )
 
 func main() {
-	head := linkedlist.CreateLinkedList([]int{1, 2})
-
-	fmt.Print("")
-
-	result := linkedlist.SegreGateEvenOddSingleTraversal(head)
-	linkedlist.PrintLinkedList(result)
+	result := stack.StockSpan([]int{1, 2})
+	fmt.Println(result)
 }
