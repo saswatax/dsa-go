@@ -1,25 +1,16 @@
 package main
 
-// func main() {
-// 	result := kmp("ababcab", "ab")
-// 	fmt.Println("Result: ", result)
-// }
+import (
+	"fmt"
+
+	"github.com/saswatax/dsa-go/linkedlist"
+)
 
 func main() {
-	head := Node{-1, nil}
-	last := &head
+	head := linkedlist.CreateLinkedList([]int{1, 2})
 
-	for _, v := range []int{1, 3} {
-		node := Node{v, nil}
-		last.Next = &node
-		last = &node
-	}
+	fmt.Print("")
 
-	result := segreGateEvenOddSingleTraverSal(head.Next)
-	printLinkList(result)
-}
-
-type Node struct {
-	Val  int
-	Next *Node
+	result := linkedlist.SegreGateEvenOddSingleTraversal(head)
+	linkedlist.PrintLinkedList(result)
 }

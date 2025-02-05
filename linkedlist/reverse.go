@@ -1,6 +1,6 @@
-package main
+package linkedlist
 
-func reverseLinkedList(head *Node) *Node {
+func Reverse(head *Node) *Node {
 	var pre *Node = nil
 	cur := head
 

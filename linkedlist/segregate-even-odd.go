@@ -1,6 +1,6 @@
-package main
+package linkedlist
 
-func segreGateEvenOdd(head *Node) *Node {
+func SegreGateEvenOdd(head *Node) *Node {
 	dummy := Node{-1, head}
 
 	last := &dummy
@@ -38,7 +38,7 @@ func segreGateEvenOdd(head *Node) *Node {
 	return fEven
 }
 
-func segreGateEvenOddSingleTraverSal(head *Node) *Node {
+func SegreGateEvenOddSingleTraversal(head *Node) *Node {
 	dummy := Node{-1, head}
 
 	var firstEven, firstOdd *Node
