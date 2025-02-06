@@ -9,33 +9,37 @@ type Stack[E any] interface {
 	Size() int
 }
 
-type ArrayStack[E any] []E
+type ArrayStack[E any] struct {
+	arr []E
+}
 
 func (s *ArrayStack[E]) Push(value E) {
-	*s = append(*s, value)
+	s.arr = append(s.arr, value)
 }
 
 func (s *ArrayStack[E]) Pop() (E, error) {
-	if len(*s) == 0 {
+	top := len(s.arr) - 1
+	if top == -1 {
 		var zero E
 		return zero, errors.New("invalid pop on empty stack")
 	}
 
-	res := (*s)[len(*s)-1]
-	*s = (*s)[:len(*s)-1]
+	res := s.arr[top]
+	s.arr = s.arr[:top]
 
 	return res, nil
 }
 
 func (s *ArrayStack[E]) Peak() (E, error) {
-	if len(*s) == 0 {
+	top := len(s.arr) - 1
+	if top == -1 {
 		var zero E
 		return zero, errors.New("invalid peak on empty stack")
 	}
 
-	return (*s)[len(*s)], nil
+	return s.arr[top], nil
 }
 
 func (s *ArrayStack[E]) Size() int {
-	return len(*s)
+	return len(s.arr)
 }

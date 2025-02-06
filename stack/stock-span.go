@@ -1,17 +1,33 @@
 package stack
 
-import "fmt"
-
 func StockSpan(arr []int) []int {
-	var stack ArrayStack[int] = []int{1, 2, 3}
-
-	for _, v := range arr {
-		t, _ := stack.Peak()
-		fmt.Println(t, stack.Size())
-		temp, err := stack.Pop()
-		fmt.Println(temp, err)
-		stack.Push(v)
+	if len(arr) == 0 {
+		return nil
 	}
 
-	return stack
+	stack := ArrayStack[int]{[]int{0}}
+	result := make([]int, 0, len(arr))
+	result = append(result, 1)
+
+	for i := 1; i < len(arr); i++ {
+		for {
+			val, err := stack.Peak()
+			if err == nil && arr[val] <= arr[i] {
+				stack.Pop()
+			} else {
+				break
+			}
+		}
+
+		val, err := stack.Peak()
+		if err == nil {
+			result = append(result, i-val)
+		} else {
+			result = append(result, i+1)
+		}
+
+		stack.Push(i)
+	}
+
+	return result
 }
