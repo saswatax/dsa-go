@@ -2,22 +2,23 @@ package stack
 
 import "errors"
 
-type Stack interface {
-	Push(value int)
-	Pop() (int, error)
-	Peak() (int, error)
+type Stack[E any] interface {
+	Push(value E)
+	Pop() (E, error)
+	Peak() (E, error)
 	Size() int
 }
 
-type ArrayStack[S ~[]E, E any] []S
+type ArrayStack[E any] []E
 
-func (s *ArrayStack[any]) Push(value int) {
+func (s *ArrayStack[E]) Push(value E) {
 	*s = append(*s, value)
 }
 
-func (s *ArrayStack) Pop() (int, error) {
+func (s *ArrayStack[E]) Pop() (E, error) {
 	if len(*s) == 0 {
-		return 0, errors.New("invalid pop on empty stack")
+		var zero E
+		return zero, errors.New("invalid pop on empty stack")
 	}
 
 	res := (*s)[len(*s)-1]
@@ -26,14 +27,15 @@ func (s *ArrayStack) Pop() (int, error) {
 	return res, nil
 }
 
-func (s *ArrayStack) Peak() (int, error) {
+func (s *ArrayStack[E]) Peak() (E, error) {
 	if len(*s) == 0 {
-		return 0, errors.New("invalid peak on empty stack")
+		var zero E
+		return zero, errors.New("invalid peak on empty stack")
 	}
 
 	return (*s)[len(*s)], nil
 }
 
-func (s *ArrayStack) Size() int {
+func (s *ArrayStack[E]) Size() int {
 	return len(*s)
 }
