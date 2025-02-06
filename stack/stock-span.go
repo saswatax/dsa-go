@@ -3,7 +3,7 @@ package stack
 import "fmt"
 
 func StockSpan(arr []int) []int {
-	stack := ArrayStack{[]int{}, -1}
+	var stack ArrayStack = []int{}
 
 	for _, v := range arr {
 		t, _ := stack.Peak()
@@ -13,5 +13,5 @@ func StockSpan(arr []int) []int {
 		stack.Push(v)
 	}
 
-	return stack.arr
+	return stack
 }
