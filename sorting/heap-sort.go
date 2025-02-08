@@ -1,6 +1,6 @@
-package main
+package sorting
 
-func heapSort(arr []int) {
+func HeapSort(arr []int) {
 	n := len(arr)
 
 	for i := n/2 - 1; i >= 0; i-- {

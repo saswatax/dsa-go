@@ -1,8 +1,8 @@
-package main
+package string
 
 import "math"
 
-func longestValidParentheses(s string) int {
+func LongestValidParentheses(s string) int {
 	result := 0
 	curResult := 0
 	counter := 0

@@ -1,6 +1,6 @@
-package main
+package string
 
-func kmp(text, pattern string) []int {
+func KMP(text, pattern string) []int {
 	n, m := len(text), len(pattern)
 	res := []int{}
 

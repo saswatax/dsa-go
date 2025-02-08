@@ -1,4 +1,8 @@
-package main
+package sorting
+
+func MergeSort(arr []int) {
+	mergeSort(arr, 0, len(arr)-1)
+}
 
 func mergeSort(arr []int, left, right int) {
 	if left >= right {

@@ -1,8 +1,8 @@
-package main
+package array
 
 import "math"
 
-func trap(height []int) int {
+func Trap(height []int) int {
 	n := len(height)
 	left, right := make([]int, n), make([]int, n)
 

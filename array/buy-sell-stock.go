@@ -1,6 +1,6 @@
-package main
+package array
 
-func buyAndSellStock(prices []int) int {
+func BuyAndSellStock(prices []int) int {
 	result, curResult, left := 0, 0, 0
 
 	for right := 1; right < len(prices); right++ {
