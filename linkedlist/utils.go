@@ -2,25 +2,26 @@ package linkedlist
 
 import "fmt"
 
-type Node struct {
-	Val  int
-	Next *Node
+type Node[V any] struct {
+	Val  V
+	Next *Node[V]
 }
 
-func CreateLinkedList(arr []int) *Node {
-	head := Node{-1, nil}
-	last := &head
+func CreateLinkedList[V any](arr []V) *Node[V] {
+	var zero V
+	dummy := Node[V]{zero, nil}
+	last := &dummy
 
 	for _, v := range arr {
-		node := Node{v, nil}
+		node := Node[V]{v, nil}
 		last.Next = &node
 		last = &node
 	}
 
-	return head.Next
+	return dummy.Next
 }
 
-func PrintLinkedList(head *Node) {
+func PrintLinkedList[V any](head *Node[V]) {
 	for cur := head; cur != nil; cur = cur.Next {
 		fmt.Print(cur.Val, " ")
 	}

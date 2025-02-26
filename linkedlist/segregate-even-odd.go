@@ -1,7 +1,7 @@
 package linkedlist
 
-func SegreGateEvenOdd(head *Node) *Node {
-	dummy := Node{-1, head}
+func SegreGateEvenOdd[V int](head *Node[V]) *Node[V] {
+	dummy := Node[V]{-1, head}
 
 	last := &dummy
 
@@ -10,7 +10,7 @@ func SegreGateEvenOdd(head *Node) *Node {
 	}
 
 	cur := &dummy
-	var fEven, fOdd *Node
+	var fEven, fOdd *Node[V]
 
 	for cur.Next != fOdd {
 		if cur.Next.Val%2 != 0 {
@@ -38,10 +38,10 @@ func SegreGateEvenOdd(head *Node) *Node {
 	return fEven
 }
 
-func SegreGateEvenOddSingleTraversal(head *Node) *Node {
-	dummy := Node{-1, head}
+func SegreGateEvenOddSingleTraversal[V int](head *Node[V]) *Node[V] {
+	dummy := Node[V]{-1, head}
 
-	var firstEven, firstOdd *Node
+	var firstEven, firstOdd *Node[V]
 	lastEven, lastOdd := &dummy, &dummy
 
 	cur := &dummy

@@ -1,7 +1,7 @@
 package linkedlist
 
-func Reverse(head *Node) *Node {
-	var pre *Node = nil
+func Reverse[V any](head *Node[V]) *Node[V] {
+	var pre *Node[V]
 	cur := head
 
 	for cur != nil {
